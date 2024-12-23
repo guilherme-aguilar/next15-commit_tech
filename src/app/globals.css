@@ -7,7 +7,7 @@ body {
 }
 
 @layer base {
-  :root {
+  /* :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -32,6 +32,54 @@ body {
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  } */
+  :root {
+    /* Base colors */
+    --background: 240 5.9% 10%;
+    --foreground: 240 5.7% 95%;
+    
+    /* Card colors */
+    --card: 240 5.9% 13%;
+    --card-foreground: 240 5.7% 95%;
+ 
+    /* Popover colors */
+    --popover: 240 5.9% 13%;
+    --popover-foreground: 240 5.7% 95%;
+ 
+    /* Primary colors */
+    --primary: 255 86% 64%;
+    --primary-foreground: 240 5.7% 95%;
+ 
+    /* Secondary colors */
+    --secondary: 240 5.9% 18%;
+    --secondary-foreground: 240 5.7% 95%;
+ 
+    /* Muted colors */
+    --muted: 240 5.9% 18%;
+    --muted-foreground: 240 5% 58%;
+ 
+    /* Accent colors */
+    --accent: 240 5.9% 18%;
+    --accent-foreground: 240 5.7% 95%;
+ 
+    /* Destructive colors */
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 240 5.7% 95%;
+ 
+    /* Border, Input, Ring */
+    --border: 240 5% 20%;
+    --input: 240 5% 20%;
+    --ring: 255 86% 64%;
+
+    /* Chart colors */
+    --chart-1: 255 86% 64%;  /* Primary/Purple */
+    --chart-2: 160 98% 39%; /* Success/Green */
+    --chart-3: 32 97% 64%;  /* Warning/Orange */
+    --chart-4: 256 100% 71%; /* Info/Purple */
+    --chart-5: 240 5% 58%;  /* Muted text */
+ 
+    /* Border radius */
     --radius: 0.5rem;
   }
   .dark {
