@@ -6,8 +6,6 @@ export function middleware(request: NextRequest) {
   const accessToken = request.cookies.get('accessToken')?.value
   const refreshToken = request.cookies.get('refreshToken')?.value
 
-  console.log(accessToken)
-  
   // Verifica se o usuário está autenticado
   const isAuthenticated = !!accessToken && !!refreshToken
 

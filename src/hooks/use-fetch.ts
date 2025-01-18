@@ -6,7 +6,7 @@ const fetchInstance = async (url: string, options: RequestInit = {}, credentials
   const token = accessTokenCookie?.value;
 
   const headers: Record<string, string> = {
-    'Content-Type': 'application/json',
+    ...(options.method !== 'DELETE' ? { 'Content-Type': 'application/json' } : {}),
     ...(token && { 'Authorization': `Bearer ${token}` }),
     ...(options.headers as Record<string, string>),
   };

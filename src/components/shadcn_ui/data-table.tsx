@@ -1,5 +1,4 @@
 "use client"
-import * as React from "react"
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -13,6 +12,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 import { ChevronDown } from 'lucide-react'
+import * as React from "react"
 
 import { Button } from "@/components/shadcn_ui/button"
 import {
@@ -23,6 +23,13 @@ import {
 } from "@/components/shadcn_ui/dropdown-menu"
 import { Input } from "@/components/shadcn_ui/input"
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/shadcn_ui/select"
+import {
   Table,
   TableBody,
   TableCell,
@@ -30,26 +37,21 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/shadcn_ui/table"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/shadcn_ui/select"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
   filterColumn?: string
+  initialSorting?: { id: string; desc: boolean }[]
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
   filterColumn,
+  initialSorting = [],
 }: DataTableProps<TData, TValue>) {
-  const [sorting, setSorting] = React.useState<SortingState>([])
+  const [sorting, setSorting] = React.useState<SortingState>(initialSorting)
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
   const [rowSelection, setRowSelection] = React.useState({})

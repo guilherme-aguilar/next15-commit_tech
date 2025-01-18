@@ -1,5 +1,5 @@
 export interface IBasic{
-  id?: string;
+  id: string;
   idx?: number;
   createdAt: Date;
   disabledAt?: Date;

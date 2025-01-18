@@ -1,6 +1,6 @@
-import type { IBasic } from "./basic";
+import type { IBasic } from "../entities/basic";
 
-export interface ICustomer extends IBasic {
+export interface ICustomerEntity extends IBasic {
   
   name: string;
   fantasyName?: string,
@@ -27,6 +27,7 @@ export interface ICustomer extends IBasic {
     email: string;
     phone: string;
     position: string;
+    identification: string;
   };
 
   //relations

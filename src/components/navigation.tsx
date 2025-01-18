@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Button } from "@/components/shadcn_ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/shadcn_ui/avatar"
-import { BarChart, Bell, ChevronDown, ChevronLeft, ChevronRight, ChevronUp, Home, Menu, LogOut, Settings, Users, HelpCircle, PhoneCall, BookOpen, UserCheck, Hammer, ShieldOff  } from 'lucide-react'
+import { BarChart, Bell, ChevronDown, ChevronLeft, ChevronRight, ChevronUp, Home, Menu, LogOut, Settings, Users, HelpCircle, PhoneCall, BookOpen, UserCheck, Hammer, ShieldOff, TableProperties  } from 'lucide-react'
 import { Sheet, SheetContent, SheetTrigger } from "@/components/shadcn_ui/sheet"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/shadcn_ui/tooltip"
 import React from 'react'
@@ -12,6 +12,14 @@ const sidebarItems = [
   { icon: 'Home', label: 'Home', href: '#' },
   { icon: 'BarChart', label: 'Dashboard', href: '#' },
   { icon: 'Users', label: 'Usuários', href: '#' },
+  {  
+    icon: 'HelpCircle',
+    label: 'Administracao',
+    href: '#',
+    subItems: [
+      {icon: "TableProperties", label: 'Clientes', href: './dash/customer', }
+    ]
+  },
   { icon: 'Settings', label: 'Configurações', href: '#' },
   {
     icon: 'HelpCircle',
@@ -34,7 +42,7 @@ const sidebarItems = [
 ]
 
 const iconComponents = {
-  Home, BarChart, Users, Settings, HelpCircle, PhoneCall, BookOpen, UserCheck, Hammer, ShieldOff 
+  Home, BarChart, Users, Settings, HelpCircle, PhoneCall, BookOpen, UserCheck, Hammer, ShieldOff, TableProperties
 }
 
 const cardIcons = {
@@ -140,10 +148,7 @@ export default function SidebarAndHeader({
 
     return (
       <div className="p-4 flex flex-col h-full">
-        <div className="flex items-center mb-8 justify-between">
-          {(!isSidebarCollapsed || isMobile) && (
-            <span className="text-xl font-bold text-foreground">Rocketseat</span>
-          )}
+        <div className="flex items-center justify-between">
           {!isMobile && (
             <Button 
               variant="ghost" 
@@ -154,7 +159,13 @@ export default function SidebarAndHeader({
               {isSidebarCollapsed ? <ChevronRight /> : <ChevronLeft />}
             </Button>
           )}
+         
         </div>
+        <div className="flex items-center p-2 justify-center mb-8">
+            {(!isSidebarCollapsed || isMobile) && (
+              <img src="/LogoIcon.png" alt="Logomarca Rocketseat" className="text-xl font-bold text-foreground w-[90px] h-auto" />
+            )}
+          </div>
         <nav className="flex-grow">
           <ul className="space-y-2">
             {sidebarItems.map(item => renderItem(item))}
