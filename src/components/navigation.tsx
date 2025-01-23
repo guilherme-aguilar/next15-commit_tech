@@ -14,10 +14,11 @@ const sidebarItems = [
   { icon: 'Users', label: 'Usuários', href: '#' },
   {  
     icon: 'HelpCircle',
-    label: 'Administracao',
+    label: 'Administração',
     href: '#',
     subItems: [
-      {icon: "TableProperties", label: 'Clientes', href: './dash/customer', }
+      {icon: "TableProperties", label: 'Clientes', href: './customer', },
+      {icon: "TableProperties", label: 'Perfis de Clientes', href: './customer-profile', }
     ]
   },
   { icon: 'Settings', label: 'Configurações', href: '#' },
