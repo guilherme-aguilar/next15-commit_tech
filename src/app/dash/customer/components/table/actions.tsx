@@ -81,21 +81,21 @@ export function CustomerActions({ customer }: CustomerActionsProps) {
 
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => router.push(`/dash/customer/${customer.id}`)}>
-          Edit
+          Editar
         </DropdownMenuItem>
 
         {!customer.disabledAt ? (
           <DropdownMenuItem onClick={handleDeactivate}>
-            Deactivate
+            Desativar
           </DropdownMenuItem>
         ) : (
           <DropdownMenuItem onClick={handleActivate}>
-            Activate
+            Ativar
           </DropdownMenuItem>
         )}
 
         <DropdownMenuItem onClick={handleDelete} className="text-red-600">
-          Delete
+          Deletar
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

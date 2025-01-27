@@ -8,7 +8,7 @@ const permissionSchema = z.object({
 
 export const RequestPermissionSchemas = z.object({
   name: z.string().min(1, "Nome é obrigatório").describe("Nome do cliente"),
-  role: z.enum(Object.values(AccountTypeWithoutOwnerEnum) as [string, ...string[]]),
+  role: z.enum(Object.values(AccountTypeWithoutOwnerEnum,) as [string, ...string[]],),
   permissions: z.record(z.boolean()).transform((permissions) =>
     Object.entries(permissions)
       .filter(([, value]) => value)
@@ -20,3 +20,6 @@ export const RequestPermissionSchemas = z.object({
   ),
 })
 
+
+
+export type FormData = z.infer<typeof RequestPermissionSchemas>

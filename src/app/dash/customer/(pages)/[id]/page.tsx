@@ -99,7 +99,7 @@ export default function ChangeCustomerPage() {
   return (
     <main className="p-8 max-w-7xl mx-auto">
       <div className="flex items-center justify-between mb-8">
-        <Breadcrumb title="Novo" patch={[
+        <Breadcrumb title="Atualizar" patch={[
           {
             name: "Clientes",
             href: "/dash/customer"

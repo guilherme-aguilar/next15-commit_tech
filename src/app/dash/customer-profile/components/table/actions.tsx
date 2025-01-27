@@ -1,4 +1,5 @@
-import { MoreHorizontal } from "lucide-react";
+import type { ICustomerProfileEntity } from "@/_domain/interfaces/customer-profile/entity";
+import { SubmitEnableCustomer } from "@/app/dash/customer/lib/enableCustomer";
 import { Button } from "@/components/shadcn_ui/button";
 import {
   DropdownMenu,
@@ -6,13 +7,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/shadcn_ui/dropdown-menu";
-import { useRouter } from "next/navigation";
-import { SubmitDisableCustomer } from "../../lib/disableCustomer";
 import { toast } from "@/hooks/use-toast";
-import { SubmitEnableCustomer } from "../../lib/enableCustomer";
-import type { ICustomerEntity } from "@/_domain/interfaces/customer/entity";
-import { SubmitDeleteCustomer } from "../../lib/deleteCustomer";
-import type { ICustomerProfileEntity } from "@/_domain/interfaces/customer-profile/entity";
+import { MoreHorizontal } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { SubmitDeleteCustomer } from "../../lib/deleteCustomerProfile";
+import { SubmitDisableCustomerProfile } from "../../lib/disableCustomerProfile";
 
 interface CustomerActionsProps {
   customer: ICustomerProfileEntity;
@@ -25,7 +24,7 @@ export function CustomerProfileActions({ customer }: CustomerActionsProps) {
   const handleDeactivate = async () => {
     try {
       // Desativa o cliente
-      await SubmitDisableCustomer(customer?.id);
+      await SubmitDisableCustomerProfile(customer?.id);
 
       window.location.reload();
      
@@ -81,22 +80,22 @@ export function CustomerProfileActions({ customer }: CustomerActionsProps) {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => router.push(`/dash/customer/${customer.id}`)}>
-          Edit
+        <DropdownMenuItem onClick={() => router.push(`/dash/customer-profile/${customer.id}`)}>
+          Editar
         </DropdownMenuItem>
 
-        {!customer.disabledAt ? (
+        {/* {!customer.disabledAt ? (
           <DropdownMenuItem onClick={handleDeactivate}>
-            Deactivate
+            Desativar
           </DropdownMenuItem>
         ) : (
           <DropdownMenuItem onClick={handleActivate}>
-            Activate
+            Ativar
           </DropdownMenuItem>
-        )}
+        )} */}
 
         <DropdownMenuItem onClick={handleDelete} className="text-red-600">
-          Delete
+          Deletar
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

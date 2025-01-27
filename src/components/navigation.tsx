@@ -8,38 +8,41 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/shadcn_ui/sheet"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/shadcn_ui/tooltip"
 import React from 'react'
 
+
+const urlBasic = process.env.NEXT_PUBLIC_FRONTEND_URL
+
 const sidebarItems = [
-  { icon: 'Home', label: 'Home', href: '#' },
-  { icon: 'BarChart', label: 'Dashboard', href: '#' },
-  { icon: 'Users', label: 'Usuários', href: '#' },
+  { icon: 'Home', label: 'Home', href: `${urlBasic}/dash/` },
+  // { icon: 'BarChart', label: 'Dashboard', href: '#' },
+  // { icon: 'Users', label: 'Usuários', href: '#' },
   {  
     icon: 'HelpCircle',
     label: 'Administração',
     href: '#',
     subItems: [
-      {icon: "TableProperties", label: 'Clientes', href: './customer', },
-      {icon: "TableProperties", label: 'Perfis de Clientes', href: './customer-profile', }
+      {icon: "TableProperties", label: 'Clientes', href: `${urlBasic}/dash/customer`, },
+      {icon: "TableProperties", label: 'Perfis de Clientes', href: `${urlBasic}/dash/customer-profile`, }
     ]
   },
-  { icon: 'Settings', label: 'Configurações', href: '#' },
-  {
-    icon: 'HelpCircle',
-    label: 'Suporte',
-    href: '#',
-    subItems: [
-      { icon: 'PhoneCall', label: 'Chamados', href: '#', },
-      { icon: 'BookOpen', label: 'Assuntos', href: '#assuntos' },
-      { icon: 'UserCheck', label: 'Analistas', href: '#analistas' },
-    ]
-  },
-  {
-    icon: 'Hammer',
-    label: 'Ferramentas',
-    href: '#',
-    subItems: [
-      { icon: 'ShieldOff', label: 'DNS RPZ', href: '#', },
-    ]
-  }
+  // { icon: 'Settings', label: 'Configurações', href: '#' },
+  // {
+  //   icon: 'HelpCircle',
+  //   label: 'Suporte',
+  //   href: '#',
+  //   subItems: [
+  //     { icon: 'PhoneCall', label: 'Chamados', href: '#', },
+  //     { icon: 'BookOpen', label: 'Assuntos', href: '#assuntos' },
+  //     { icon: 'UserCheck', label: 'Analistas', href: '#analistas' },
+  //   ]
+  // },
+  // {
+  //   icon: 'Hammer',
+  //   label: 'Ferramentas',
+  //   href: '#',
+  //   subItems: [
+  //     { icon: 'ShieldOff', label: 'DNS RPZ', href: '#', },
+  //   ]
+  // }
 ]
 
 const iconComponents = {
